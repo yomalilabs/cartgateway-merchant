@@ -1,0 +1,39 @@
+{
+    "name": "yomalilabs/cartgateway-merchant",
+    "type": "library",
+    "description": "Merchant API for CartGateway.",
+    "keywords": ["Yomali", "CartGateway", "Merchant"],
+    "license": "MIT",
+    "require": {
+
+        "guzzlehttp/guzzle": "^7.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+    },
+    "autoload": {
+        "psr-4": {
+            "CartGateway\\": "src/"
+        },
+        "classmap": [
+
+        ],
+        "files": [
+
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
