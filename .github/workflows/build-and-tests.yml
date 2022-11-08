@@ -1,0 +1,41 @@
+name: Build and Run Tests
+on: push
+
+jobs:
+  build-develop:
+    name: Build and Run Tests [Development]
+    if: ${{ github.ref == 'refs/heads/develop' }}
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.3
+          tools: composer:v2
+
+      - name: Validate composer
+        run: composer validate --strict
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install composer dependencies (Develop)
+        run: |
+          composer install \
+              --prefer-dist \
+              --no-suggest \
+              --no-progress
+
+      - name: Unit Tests
+        run: php vendor/phpunit/phpunit/phpunit
