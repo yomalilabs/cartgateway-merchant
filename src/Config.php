@@ -20,6 +20,6 @@ class Config
     public const USER_AGENT = 'CartGateway-PHP/20221107';
 
     public const IS_DEBUG = false;
-    public const TEST_ACCOUNT_ID = 7407;    
-    public const TEST_ACCESS_TOKEN = '0cf369927992b63f785c1e9c12049dfaaff58e71';                  
+    public const TEST_ACCOUNT_ID = 7769;    
+    public const TEST_ACCESS_TOKEN = '05bea34479dd7fc488c1ce774400e9a0bfea02b1';                  
 }
