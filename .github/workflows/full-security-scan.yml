@@ -1,0 +1,14 @@
+name: Full security Scan
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  security-scan:
+    uses: yomalilabs/Github-actions/.github/workflows/complete-security-check.yml@develop
+    secrets: inherit
