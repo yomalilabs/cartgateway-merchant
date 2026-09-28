@@ -11,4 +11,5 @@ on:
 jobs:
   security-scan:
     uses: yomalilabs/Github-actions/.github/workflows/complete-security-check.yml@develop
-    secrets: inherit
+    secrets:
+      SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
